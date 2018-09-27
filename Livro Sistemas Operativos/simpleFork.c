@@ -4,6 +4,6 @@
 
 int main(){
 	fork();
-	printf("Hello Fork!");
+	printf("\nHello Fork!\n");
 	return 0;
 }
