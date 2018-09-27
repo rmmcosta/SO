@@ -1,0 +1,1 @@
+gcc coordinate.o grid.o CircuitRouter-SeqSolver.o maze.o lib/list.o lib/pair.o lib/queue.o lib/vector.o -lm -o CircuitRouter-SeqSolver
