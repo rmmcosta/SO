@@ -63,6 +63,8 @@
 #include "lib/types.h"
 #include "lib/vector.h"
 
+#define ENDFGETS 'e'
+//#define __LOGS__ 1
 
 /* =============================================================================
  * maze_alloc
@@ -129,9 +131,21 @@ void maze_free (maze_t* mazePtr){
 static void addToGrid (grid_t* gridPtr, vector_t* vectorPtr, char* type){
     long i;
     long n = vector_getSize(vectorPtr);
+	
+#ifdef __LOGS__
+	printf("Vector size:%ld\n",n);
+#endif
+
+	// why this cycle?
+	// to run trough all the elements
+	// the vector_at function return null if i is bigger than the size of the vector
     for (i = 0; i < n; i++) {
         coordinate_t* coordinatePtr = (coordinate_t*)vector_at(vectorPtr, i);
         // TODO validar ponto
+		if(coordinatePtr == NULL){
+			fprintf(stderr,"The element position %ld is outside the vector range %ld!\n", i,n);
+			exit(1);
+		}
     }
     grid_addPath(gridPtr, vectorPtr);
 }
@@ -157,6 +171,7 @@ long maze_read (maze_t* mazePtr){
     vector_t* srcVectorPtr = mazePtr->srcVectorPtr;
     vector_t* dstVectorPtr = mazePtr->dstVectorPtr;
     
+	//rcosta changed the while in order to be able to easily terminate it
     while (fgets(line, sizeof(line), stdin)) {
         
         char code;
@@ -194,6 +209,11 @@ long maze_read (maze_t* mazePtr){
                 }
                 coordinate_t* srcPtr = coordinate_alloc(x1, y1, z1);
                 coordinate_t* dstPtr = coordinate_alloc(x2, y2, z2);
+				// what is the job of the assert function?
+				/* The C library macro void assert(int expression) allows diagnostic information 
+				 * to be written to the standard error file. In other words, it can be used to add 
+				 * diagnostics in your C program.
+				 */
                 assert(srcPtr);
                 assert(dstPtr);
                 if (coordinate_isEqual(srcPtr, dstPtr)) {
@@ -215,6 +235,14 @@ long maze_read (maze_t* mazePtr){
                 vector_pushBack(wallVectorPtr, (void*)wallPtr);
                 break;
             }
+			//rcosta
+			case ENDFGETS:
+			
+#ifdef __LOGS__
+	printf("ENDFGETS\n");
+#endif			
+				goto INIT;
+			//
             PARSE_ERROR:
             default: { /* error */
                 fprintf(stderr, "Error: line %li invalid\n",
@@ -222,26 +250,40 @@ long maze_read (maze_t* mazePtr){
                 exit(1);
             }
         }
-        
     } /* iterate over lines in input file */
-    
     
     /*
      * Initialize grid contents
      */
+	//rcosta
+	INIT:
+	//
+#ifdef __LOGS__
+	printf("Initialize grid contents\n");
+#endif
+
     if (width < 1 || height < 1 || depth < 1) {
         fprintf(stderr, "Error: Invalid dimensions (%li, %li, %li)\n",
                 width, height, depth);
         exit(1);
     }
+					
     grid_t* gridPtr = grid_alloc(width, height, depth);
-    assert(gridPtr);
+    assert(gridPtr);				
     mazePtr->gridPtr = gridPtr;
+#ifdef __LOGS__
+	printf("add wall to grid\n");
+#endif
     addToGrid(gridPtr, wallVectorPtr, "wall");
+	
     addToGrid(gridPtr, srcVectorPtr,  "source");
+	
     addToGrid(gridPtr, dstVectorPtr,  "destination");
+	
+	
     printf("Maze dimensions = %li x %li x %li\n", width, height, depth);
     printf("Paths to route  = %li\n", list_getSize(workListPtr));
+
     
     /*
      * Initialize work queue

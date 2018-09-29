@@ -60,6 +60,7 @@
 #include "lib/types.h"
 #include "lib/vector.h"
 
+//#define __LOGS__ 1
 
 const unsigned long CACHE_LINE_SIZE = 32UL;
 
@@ -197,14 +198,28 @@ void grid_setPoint (grid_t* gridPtr, long x, long y, long z, long value){
  * =============================================================================
  */
 void grid_addPath (grid_t* gridPtr, vector_t* pointVectorPtr){
-    long i;
+    long i;	
     long n = vector_getSize(pointVectorPtr);
+	
+#ifdef __LOGS__
+	printf("pointVectorPtr size:%ld\n",n);
+#endif
 
     for (i = 0; i < n; i++) {
         coordinate_t* coordinatePtr = (coordinate_t*)vector_at(pointVectorPtr, i);
         long x = coordinatePtr->x;
         long y = coordinatePtr->y;
         long z = coordinatePtr->z;
+		
+		//rcosta
+		//any point above max or below min give error and exit
+		char *invalidMessage;
+		int valid = grid_validatePoints(x,y,z,0,0,0,gridPtr->width,gridPtr->height,gridPtr->depth, &invalidMessage);
+		if(valid==0){
+			fprintf(stderr,"%s",invalidMessage);
+			exit(1);
+		}
+			
         grid_setPoint(gridPtr, x, y, z, GRID_POINT_FULL);
     }
 }
@@ -233,8 +248,66 @@ void grid_print (grid_t* gridPtr){
     // TODO implementar esta funcao
     // Sugestão: usem as opções de formatação do output do printf para impor espaço fixo
     // entre os elementos da grelha. Por exemplo: printf("%4li", valor-a-imprimir);
+	// foreach layer (z) defined in the dimensions
+	// rcosta
+	//printf("Print the grid\n");
+
+	long zLength = gridPtr->depth;
+	long i;
+	for(i=0;i<zLength;i++) {
+        printf("[z=%1li]\n", i);
+        // the line (x)
+        int j;
+        long xLength = gridPtr->width;
+        for (j = 0; j < xLength; j++) {
+            // the column (y)
+            int k;
+            long yLength = gridPtr->height;
+            for (k = 0; k < yLength; k++) {
+                printf("%4li", grid_getPoint(gridPtr, j, k, i));
+            }
+            puts("");
+        }
+    }
 }
 
+/* =============================================================================
+ * grid_validatePoints
+ * =============================================================================
+ */
+int grid_validatePoints(long x, long y, long z, long minX, long minY, long minZ, long maxX, long maxY, long maxZ, char **invalidMessage){
+	int invalidMessageSize = 50; 
+    *invalidMessage = malloc(invalidMessageSize);
+	//x validations
+	if(x < minX){
+		 snprintf(*invalidMessage, invalidMessageSize, "The x point %ld is below the minimum allowed %ld!", x, minX); 
+		 return 0;
+	}
+	if(x > maxX){
+		 snprintf(*invalidMessage, invalidMessageSize, "The x point %ld is above the maximum allowed %ld!", x, maxX); 
+		 return 0;
+	}
+	//y validations
+	if(y < minY){
+		 snprintf(*invalidMessage, invalidMessageSize, "The y point %ld is below the minimum allowed %ld!", y, minY); 
+		 return 0;
+	}
+	if(y > maxY){
+		 snprintf(*invalidMessage, invalidMessageSize, "The y point %ld is above the maximum allowed %ld!", y, maxY);
+		 return 0;
+	}
+	//z validations
+	if(z < minZ){
+		 snprintf(*invalidMessage, invalidMessageSize, "The z point %ld is below the minimum allowed %ld!", z, minZ); 
+		 return 0;
+	}
+	if(z > maxZ){
+		 snprintf(*invalidMessage, invalidMessageSize, "The z point %ld is above the maximum allowed %ld!", z, maxZ); 
+		 return 0;
+	}
+	//return valid
+	return 1;
+}
 
 /* =============================================================================
  *

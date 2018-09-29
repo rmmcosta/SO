@@ -53,6 +53,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "coordinate.h"
 #include "grid.h"
 #include "lib/queue.h"
@@ -332,6 +333,12 @@ void router_solve (void* argPtr){
         vector_t* pointVectorPtr = NULL;
 
         grid_copy(myGridPtr, gridPtr); /* create a copy of the grid, over which the expansion and trace back phases will be executed. */
+
+        //rcosta
+        //print the grid at this stage
+        printf("\nThe grid before the Trace-back:\n");
+        grid_print(myGridPtr);
+        puts("----------------------------------------------------------");
         if (doExpansion(routerPtr, myGridPtr, myExpansionQueuePtr,
                          srcPtr, dstPtr)) {
             pointVectorPtr = doTraceback(gridPtr, myGridPtr, dstPtr, bendCost);
@@ -341,7 +348,11 @@ void router_solve (void* argPtr){
                 success = TRUE;
             }
         }
-
+        //rcosta
+        //print the grid at this stage
+        printf("\nThe grid after the Expansion:\n");
+        grid_print(myGridPtr);
+        puts("----------------------------------------------------------");
         if (success) {
             bool_t status = vector_pushBack(myPathVectorPtr,(void*)pointVectorPtr);
             assert(status);

@@ -163,6 +163,11 @@ void grid_addPath_Ptr (grid_t* gridPtr, vector_t* pointVectorPtr);
  */
 void grid_print (grid_t* gridPtr);
 
+/* =============================================================================
+ * grid_validatePoints
+ * =============================================================================
+ */
+int grid_validatePoints(long x, long y, long z, long minX, long minY, long minZ, long maxX, long maxY, long maxZ, char **invalidMessage);
 
 #endif /* GRID_H */
 

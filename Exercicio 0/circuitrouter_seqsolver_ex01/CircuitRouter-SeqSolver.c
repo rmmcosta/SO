@@ -59,7 +59,7 @@
 #include "lib/timer.h"
 #include "lib/types.h"
 
-#define __LOGS__ 1
+// #define __LOGS__ 1
 
 enum param_types {
     PARAM_BENDCOST = (unsigned char)'b',
@@ -75,7 +75,7 @@ enum param_defaults {
     PARAM_DEFAULT_ZCOST    = 2,
 };
 
-bool_t global_doPrint = FALSE;
+bool_t global_doPrint = TRUE;
 char* global_inputFile = NULL;
 long global_params[256]; /* 256 = ascii limit */
 
@@ -220,7 +220,7 @@ int main(int argc, char** argv){
      * Check solution and clean up
      */
     assert(numPathRouted <= numPathToRoute);
-    bool_t status = maze_checkPaths(mazePtr, pathVectorListPtr, global_doPrint);
+	bool_t status = maze_checkPaths(mazePtr, pathVectorListPtr, global_doPrint);
     assert(status == TRUE);
     puts("Verification passed.");
 
