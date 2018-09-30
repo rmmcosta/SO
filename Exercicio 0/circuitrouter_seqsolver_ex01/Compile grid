@@ -1,1 +1,0 @@
-gcc -c grid.c -o grid.o

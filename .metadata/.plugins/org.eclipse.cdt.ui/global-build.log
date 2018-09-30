@@ -1,6 +1,0 @@
-14:20:27 **** Build of configuration Default for project Exercicio 0 ****
-make all 
-Cannot run program "make": Launching failed
-
-Error: Program "make" not found in PATH
-PATH=[C:\cygwin64\bin;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Users\Ricardo\AppData\Local\Microsoft\WindowsApps;C:\Users\Ricardo\AppData\Roaming\npm;C:\adb;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\TDM-GCC-64\bin;C:\TDM-GCC-64\x86_64-w64-mingw32\bin;C:\TDM-GCC-64\libexec\gcc\x86_64-w64-mingw32\5.1.0;C:\Users\Ricardo\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\Ricardo\AppData\Roaming\npm;C:\Users\Ricardo\AppData\Local\Programs\Microsoft VS Code\bin;C:\TDM-GCC-64\x86_64-w64-mingw32\bin;C:\TDM-GCC-64\bin;C:\TDM-GCC-64\libexec\gcc\x86_64-w64-mingw32\5.1.0;;C:\Users\Ricardo\Downloads\eclipse-cpp-kepler-SR2-win32-x86_64\eclipse]
