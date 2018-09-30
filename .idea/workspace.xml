@@ -9,30 +9,7 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f7a489d-7bb9-49b1-81f4-e275043e211b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest2.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest2.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest3.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Testes/mainArgsTest3.o" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.exe" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/coordinate.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/coordinate.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/grid.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/grid.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/list.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/list.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/pair.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/pair.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/queue.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/queue.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/vector.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/lib/vector.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/maze.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/maze.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/router.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/router.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/CircuitRouter-SeqSolver.exe" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/CircuitRouter-SeqSolver.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/grid.o" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/grid.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/snprintfTest.exe" afterPath="$PROJECT_DIR$/Testes/snprintfTest.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/snprintfTest.o" afterPath="$PROJECT_DIR$/Testes/snprintfTest.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.c" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 modificado/CircuitRouter-SeqSolver.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/grid.c" afterPath="$PROJECT_DIR$/Exercicio 0/circuitrouter_seqsolver_ex01 original/grid.c" />
-    </list>
+    <list default="true" id="6f7a489d-7bb9-49b1-81f4-e275043e211b" name="Default" comment="" />
     <ignored path="SO.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
