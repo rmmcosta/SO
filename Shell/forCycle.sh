@@ -7,14 +7,14 @@ done
 
 echo ------------
 
-#for i in $(seq 0 10)
-#do
-#    echo $i
-#done
+for i in $(seq 0 10)
+do
+    echo $i
+done
 
 echo -------------
 
-#for f in $(ls /usr/include/*.h)
-#do  
-#    echo filename: $f
-#done
+for f in $(ls /usr/include/*.h)
+do  
+    echo filename: $f
+done
